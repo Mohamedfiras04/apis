@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Wetter</title>
+    <style>
+        body { font-family: sans-serif; background: #1a1a2e; color: white; text-align: center; padding: 40px; }
+        input { padding: 10px; font-size: 16px; border-radius: 8px; border: none; }
+        button { padding: 10px 20px; font-size: 16px; border-radius: 8px; border: none; background: #4a90d9; color: white; cursor: pointer; }
+        .karte { background: #16213e; padding: 30px; border-radius: 12px; display: inline-block; margin-top: 30px; }
+        .temp { font-size: 48px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🌤️ Wetter</h1>
+    <form method="POST">
+        <input type="text" name="stadt" placeholder="Stadt eingeben..." required>
+        <button type="submit">Suchen</button>
+    </form>
+
+    {% if wetter %}
+    <div class="karte">
+        <h2>{{ stadt }}</h2>
+        <div class="temp">{{ wetter.temperature }}°C</div>
+        <p>Wind: {{ wetter.windspeed }} km/h</p>
+    </div>
+    {% endif %}
+</body>
+</html>
